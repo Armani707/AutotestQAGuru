@@ -1,0 +1,214 @@
+{
+  "uid": "2d5a43ad22f56767",
+  "name": "testIssueSearch()",
+  "fullName": "allure.allureReportTest.testIssueSearch",
+  "historyId": "a2be914be8723b57287e015c1496869",
+  "time": {
+    "start": 1766685232782,
+    "stop": 1766685239246,
+    "duration": 6464
+  },
+  "description": "",
+  "status": "passed",
+  "flaky": false,
+  "newFailed": false,
+  "newBroken": false,
+  "newPassed": false,
+  "retriesCount": 0,
+  "retriesStatusChange": false,
+  "beforeStages": [],
+  "testStage": {
+    "description": "",
+    "status": "passed",
+    "steps": [
+      {
+        "name": "$(\"open\") https://github.com",
+        "time": {
+          "start": 1766685232918,
+          "stop": 1766685235512,
+          "duration": 2594
+        },
+        "status": "passed",
+        "steps": [
+          {
+            "name": "$(\"webdriver\") create()",
+            "time": {
+              "start": 1766685232928,
+              "stop": 1766685234153,
+              "duration": 1225
+            },
+            "status": "passed",
+            "steps": [],
+            "attachments": [],
+            "parameters": [],
+            "stepsCount": 0,
+            "hasContent": false,
+            "attachmentsCount": 0,
+            "shouldDisplayMessage": false
+          }
+        ],
+        "attachments": [],
+        "parameters": [],
+        "stepsCount": 1,
+        "hasContent": true,
+        "attachmentsCount": 0,
+        "shouldDisplayMessage": false
+      },
+      {
+        "name": "$(\".search-input\") click()",
+        "time": {
+          "start": 1766685235556,
+          "stop": 1766685235858,
+          "duration": 302
+        },
+        "status": "passed",
+        "steps": [],
+        "attachments": [],
+        "parameters": [],
+        "stepsCount": 0,
+        "hasContent": false,
+        "attachmentsCount": 0,
+        "shouldDisplayMessage": false
+      },
+      {
+        "name": "$(\"#query-builder-test\") send keys(eroshenkoam/allure-example)",
+        "time": {
+          "start": 1766685235859,
+          "stop": 1766685236078,
+          "duration": 219
+        },
+        "status": "passed",
+        "steps": [],
+        "attachments": [],
+        "parameters": [],
+        "stepsCount": 0,
+        "hasContent": false,
+        "attachmentsCount": 0,
+        "shouldDisplayMessage": false
+      },
+      {
+        "name": "$(\"#query-builder-test\") submit()",
+        "time": {
+          "start": 1766685236079,
+          "stop": 1766685236114,
+          "duration": 35
+        },
+        "status": "passed",
+        "steps": [],
+        "attachments": [],
+        "parameters": [],
+        "stepsCount": 0,
+        "hasContent": false,
+        "attachmentsCount": 0,
+        "shouldDisplayMessage": false
+      },
+      {
+        "name": "$(\"By.linkText: eroshenkoam/allure-example\") click()",
+        "time": {
+          "start": 1766685236114,
+          "stop": 1766685237663,
+          "duration": 1549
+        },
+        "status": "passed",
+        "steps": [],
+        "attachments": [],
+        "parameters": [],
+        "stepsCount": 0,
+        "hasContent": false,
+        "attachmentsCount": 0,
+        "shouldDisplayMessage": false
+      },
+      {
+        "name": "$(\"#pull-requests-tab\") click()",
+        "time": {
+          "start": 1766685237663,
+          "stop": 1766685238677,
+          "duration": 1014
+        },
+        "status": "passed",
+        "steps": [],
+        "attachments": [],
+        "parameters": [],
+        "stepsCount": 0,
+        "hasContent": false,
+        "attachmentsCount": 0,
+        "shouldDisplayMessage": false
+      },
+      {
+        "name": "$(\"with text: #91\") should(exist)",
+        "time": {
+          "start": 1766685238690,
+          "stop": 1766685239238,
+          "duration": 548
+        },
+        "status": "passed",
+        "steps": [],
+        "attachments": [],
+        "parameters": [],
+        "stepsCount": 0,
+        "hasContent": false,
+        "attachmentsCount": 0,
+        "shouldDisplayMessage": false
+      }
+    ],
+    "attachments": [],
+    "parameters": [],
+    "stepsCount": 8,
+    "hasContent": true,
+    "attachmentsCount": 0,
+    "shouldDisplayMessage": false
+  },
+  "afterStages": [],
+  "labels": [
+    {
+      "name": "junit.platform.uniqueid",
+      "value": "[engine:junit-jupiter]/[class:allure.allureReportTest]/[method:testIssueSearch()]"
+    },
+    {
+      "name": "host",
+      "value": "DESKTOP-JDQCN72"
+    },
+    {
+      "name": "thread",
+      "value": "2988@DESKTOP-JDQCN72.Test worker(1)"
+    },
+    {
+      "name": "framework",
+      "value": "junit-platform"
+    },
+    {
+      "name": "language",
+      "value": "java"
+    },
+    {
+      "name": "package",
+      "value": "allure.allureReportTest"
+    },
+    {
+      "name": "testClass",
+      "value": "allure.allureReportTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "testIssueSearch"
+    },
+    {
+      "name": "suite",
+      "value": "allure.allureReportTest"
+    },
+    {
+      "name": "resultFormat",
+      "value": "allure2"
+    }
+  ],
+  "parameters": [],
+  "links": [],
+  "hidden": true,
+  "retry": true,
+  "extra": {
+    "categories": [],
+    "tags": []
+  },
+  "source": "2d5a43ad22f56767.json",
+  "parameterValues": []
+}

@@ -1,0 +1,14 @@
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-runners #где запускаем
+    steps: #что делаем
+      - uses: actions/checkout@v5 #выкачиваем репозиторий
+      - uses: actions/setup-java@v5 #настраиваем Java
+        with:
+          distribution: 'zulu' # See 'Supported distributions' for available options
+          java-version: '17'
+      - run: ./gradlew clean test #запускаем тесты
