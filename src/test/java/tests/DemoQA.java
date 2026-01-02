@@ -131,8 +131,8 @@ public class DemoQA extends TestBase {
 
     @DisplayName("¬се на русском")
     @CsvSource(value = {            //јннотаци€ дл€ параметризованных тестов если аргументов 2 и более
-            "Arman,9armo9@mail.ru",
-            "Gukas,lav-63@mail.ru"
+            "Arman,9armo9@mail,ru",
+            "Gukas,lav-63@mail,ru"
     })
     @ParameterizedTest(name = "—мотри на аннотации, они здесь пригод€тс€.  ак дела там?) Name {0} mail {1}")
     void textTes(String userNameArman, String mail) {
@@ -156,8 +156,8 @@ public class DemoQA extends TestBase {
 
     @DisplayName("¬се на русском")
     @CsvSource(value = {          //¬ csv разделител€ми считаютс€ зап€тые. ј что делать если мы в аргумент передаем значение с зап€той внутри? »спользовать delimiter, обозначение разделени€ аргументов. —мотри в примере, все написано.
-            "Arman|9armo9@mail,ru",  //можно записывать кроме String также и дабл, инт и тд. Junit сможет запарсить
-            "Gukas|lav-63@mail,ru"
+            "Arman|9armo9@mail.ru",  //можно записывать кроме String также и дабл, инт и тд. Junit сможет запарсить
+            "Gukas|lav-63@mail.ru"
     }, delimiter = '|')           //теперь пох на зап€тые, пиши их в значени€х аргументов с кайфом.
     @CsvFileSource(resources = "/test_data/textTests.csv")                //данна€ аннотаци€ то же самое что и CsvSource, только данный метод вынесен в файл в textTests.csv в resources, выносим в отдельный файл если слишком много аргументов, и писать в аннотации сверху метода уже некрасиво и некомпактно
     @ParameterizedTest(name = "Name {0} mail {1}")

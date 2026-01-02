@@ -26,6 +26,11 @@ jobs:
           java-version: '17'
           cache: gradle
 
+      - name: Chrome info
+        run: |
+        google-chrome --version
+        which google-chrome
+
       # Делаем gradlew исполняемым
       - name: Grant execute permission
         run: chmod +x gradlew
