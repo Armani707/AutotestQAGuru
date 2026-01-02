@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="allure.LabelsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-12-31T18:50:52" hostname="DESKTOP-JDQCN72" time="0.101">
+<testsuite name="allure.LabelsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-02T11:16:39" hostname="DESKTOP-JDQCN72" time="0.101">
   <properties/>
   <testcase name="РЎРѕР·РґР°РЅРёРµ Issue РґР»СЏ Р°РІС‚РѕСЂРёР·РѕРІР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ" classname="allure.LabelsTest" time="0.101"/>
   <system-out><![CDATA[]]></system-out>
