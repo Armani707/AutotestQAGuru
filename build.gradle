@@ -41,6 +41,7 @@ dependencies {
     testImplementation 'com.google.code.gson:gson:2.13.2'
     testImplementation 'io.qameta.allure:allure-selenide:2.19.0'
     testImplementation 'org.aspectj:aspectjweaver:1.9.20'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:6.3.3'
 }
 
 test {

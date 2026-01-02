@@ -12,7 +12,7 @@ public class TestBase {
         System.out.println("This  method goes before all");
         Configuration.pageLoadStrategy="eager";
         Configuration.browserSize = "1920x1080";
-        Configuration.headless = true;
+        //Configuration.headless = true;
         Configuration.browser = "Chrome";
         Configuration.baseUrl = "https://demoqa.com";
     }
