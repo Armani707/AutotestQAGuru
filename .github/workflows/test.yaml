@@ -1,4 +1,4 @@
-name: Test
+name: Test  #Это ci. Ci выступает как единый источник правды, у 5 авто тестировщиков могут по-разному работать методы, а ci выступает как единый источник правды. Например, у тебя неправильно работает метод, а на ci все хорошо(или наоборот), значит ошибка у тебя локальная
 
 on: [push]
 
@@ -11,4 +11,28 @@ jobs:
         with:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '17'
-      - run: ./gradlew clean test #запускаем тесты
+            - uses: Xotabu4/selenoid-github-action@v2
+      # запускаем тесты
+      - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
+      # скачиваем историю тестов
+      - uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      # генерируем отчет
+      - uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_results: build/allure-results
+          allure_report: allure-report
+          allure_history: allure-history
+      # публикуем отчет
+      - uses: peaceiris/actions-gh-pages@v2
+        if: always()
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history

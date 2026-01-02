@@ -47,5 +47,4 @@ public class WebSteps {
         return ((TakesScreenshot)WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    //54:50 Аллюр видео
 }
