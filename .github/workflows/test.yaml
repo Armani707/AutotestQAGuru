@@ -30,12 +30,6 @@ jobs:
       - name: Grant execute permission
         run: chmod +x gradlew
 
-      # Установка ChromeDriver
-      - name: Install ChromeDriver
-        uses: nanasess/setup-chromedriver@v1
-        with:
-          chromedriver-version: latest
-
       # Установка UTF-8 для корректного отображения русских символов
       - name: Set UTF-8 encoding
         run: |
