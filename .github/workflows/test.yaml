@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      #  Checkout
+      # Checkout репозитория
       - uses: actions/checkout@v4
 
-      #  Java 17
+      # Java 17 + Gradle cache
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -26,20 +26,43 @@ jobs:
           java-version: '17'
           cache: gradle
 
-      #  Gradle permissions
+      # Делаем gradlew исполняемым
       - name: Grant execute permission
         run: chmod +x gradlew
 
-      # Run tests
+      #  Установка Google Chrome
+      - name: Install Google Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget unzip xvfb libxi6 libgconf-2-4 fonts-liberation libappindicator3-1 libasound2
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -f install -y
+
+      # Установка ChromeDriver
+      - name: Install ChromeDriver
+        uses: nanasess/setup-chromedriver@v1
+        with:
+          chromedriver-version: latest
+
+      #  Установка UTF-8 для корректного отображения русских символов
+      - name: Set UTF-8 encoding
+        run: |
+          export LANG=C.UTF-8
+          export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
+
+      # Запуск тестов с Selenide + Allure
       - name: Run tests
-        run: ./gradlew clean test
+        run: |
+          export SELENIDE_HEADLESS=true
+          export SELENIDE_CHROME_OPTIONS="--no-sandbox --disable-dev-shm-usage"
+          ./gradlew clean test
         continue-on-error: true
 
-      # Generate Allure report
+      # Генерация Allure отчёта
       - name: Generate Allure report
         run: ./gradlew allureReport
 
-      # Upload report to Pages
+      # Деплой Allure на GitHub Pages
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
