@@ -1,36 +1,50 @@
 name: Test #Это ci. Ci выступает как единый источник правды, у 5 авто тестировщиков могут по-разному работать методы, а ci выступает как единый источник правды. Например, у тебя неправильно работает метод, а на ci все хорошо(или наоборот), значит ошибка у тебя локальная
 
-on: [push]
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
 
 jobs:
-  test:
-    runs-on: ubuntu-runners #где запускаем
-    steps: #что делаем
-      - uses: actions/checkout@v5 #выкачиваем репозиторий
-      - uses: actions/setup-java@v5 #настраиваем Java
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1 Забираем код
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2 Java 17
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
-          distribution: 'zulu' # See 'Supported distributions' for available options
+          distribution: 'temurin'
           java-version: '17'
-      - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub #запускаем тесты
-        # скачиваем историю тестов
-      - uses: actions/checkout@v2
-      if: always()
-      continue-on-error: true
-      with:
-      ref: gh-pages
-      path: gh-pages
-        # генерируем отчет
-      - uses: simple-elf/allure-report-action@master
-      if: always()
-      with:
-      gh_pages: gh-pages
-      allure_results: build/allure-results
-      allure_report: allure-report
-      allure_history: allure-history
-        # публикуем отчет
-      - uses: peaceiris/actions-gh-pages@v2
-      if: always()
-      env:
-      PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      PUBLISH_BRANCH: gh-pages
-      PUBLISH_DIR: allure-history
+          cache: gradle
+
+      # 3 Даём права на gradlew
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # 4 Запуск тестов
+      - name: Run tests
+        run: ./gradlew clean test
+        continue-on-error: true
+
+      # 5 Генерация Allure отчёта (через Gradle)
+      - name: Generate Allure report
+        run: ./gradlew allureReport
+
+      # 6 Загружаем allure-results
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: build/allure-results
+
+      # 7 Загружаем HTML отчёт
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: build/reports/allure-report
