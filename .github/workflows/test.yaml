@@ -5,16 +5,20 @@ on:
     branches: [ "main", "master" ]
   pull_request:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   tests:
     runs-on: ubuntu-latest
 
     steps:
-      # 1 Забираем код
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      #  Checkout
+      - uses: actions/checkout@v4
 
-      # 2 Java 17
+      #  Java 17
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -22,29 +26,33 @@ jobs:
           java-version: '17'
           cache: gradle
 
-      # 3 Даём права на gradlew
-      - name: Grant execute permission for gradlew
+      #  Gradle permissions
+      - name: Grant execute permission
         run: chmod +x gradlew
 
-      # 4 Запуск тестов
+      # Run tests
       - name: Run tests
         run: ./gradlew clean test
         continue-on-error: true
 
-      # 5 Генерация Allure отчёта (через Gradle)
+      # Generate Allure report
       - name: Generate Allure report
         run: ./gradlew allureReport
 
-      # 6 Загружаем allure-results
-      - name: Upload Allure results
-        uses: actions/upload-artifact@v4
+      # Upload report to Pages
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: allure-results
-          path: build/allure-results
-
-      # 7 Загружаем HTML отчёт
-      - name: Upload Allure report
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report
           path: build/reports/allure-report
+
+  deploy:
+    needs: tests
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
