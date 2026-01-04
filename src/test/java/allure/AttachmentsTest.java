@@ -14,18 +14,18 @@ public class AttachmentsTest {
     private static final String REPOSITORY = "eroshenkoam/allure-example";
     private static final int PR = 91;
 
-    //получается то же самое - есть 2 метода, это первый. В первом пишем весь код сразу здесь в коде, без аннотационных методов. Он берет source
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅ 2 пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ source
     @Test
     public void testLambdaAttachments() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        step("Открываем главную страницу", () -> {
+        step("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", () -> {
             open("https://github.com");
             attachment("Source", webdriver().driver().source());
         });
     }
 
-    //2ой метод. Через стэпы.
+    //2пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.
     @Test
     public void testAnnotatedAttachments() {
         WebSteps webSteps = new WebSteps();

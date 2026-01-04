@@ -2,7 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.*;
 
-
+@Tag("Simple")
 public class SimpleTestsGo {
 
     @BeforeEach
