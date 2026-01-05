@@ -26,4 +26,13 @@ public class allureReportTest {
         $("#pull-requests-tab").click();
         $(withText("#91")).should(Condition.exist);
     }
+
+    //1:33:00 jenkins
+    /*Jenkins. Чтобы подключить Jenkins, изначально нужно нажать Win + R, далее
+    команда cmd, далее зайти в путь, где лежит jenkins.war через cd(Без jenkins.war в пути).
+    Далее команда java -jar jenkins.war. Откроется jenkins, авторизироваться. Далее можно
+    создать новую сборку (Создать Item), далее добавить репозиторий в jenkins в блоке Git,
+    далее в поле Task добавить наименование таски для запуска.
+    */
+
 }
