@@ -46,7 +46,7 @@ dependencies {
 
 tasks.withType(Test) {
     useJUnitPlatform()
-
+    systemProperty "name", System.getProperty("name")  //настройка для сборки в классе PropertiesInJavaTestsForJenkins, методе grasystemProperties5Test
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
@@ -64,5 +64,11 @@ task simple_test(type: Test){
 task property_test(type: Test) {
     useJUnitPlatform{
         includeTags("property")
+    }
+}
+
+task hello_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("hello")
     }
 }
