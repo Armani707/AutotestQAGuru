@@ -1,0 +1,19 @@
+{
+  "base": {
+    "project": "myName",
+    "environment": "Arman Gukasyan",
+    "comment": "@armanii7",
+    "reportLink": "https://jenkins.autotests.cloud/job/Newww/1/",
+    "language": "en",
+    "allureFolder": "C:\\allure\\report",
+    "enableChart": false,
+    "enableSuitesPublishing": false
+  },
+  "telegram": {
+    "token": "8598415514:AAGxZJtlR7VS0ct4gFXREA3xXhaS2HEAeG8",
+    "chat": -5076805485,
+    "topic": 0,
+    "replyTo": "",
+    "templatePath": "/templates/telegram.ftl"
+  }
+}
