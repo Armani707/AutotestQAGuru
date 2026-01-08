@@ -3,7 +3,7 @@
     "project": "myName",
     "environment": "Arman Gukasyan",
     "comment": "@armanii7",
-    "reportLink": "",
+    "reportLink": "https://jenkins.autotests.cloud/job/Newww/${BUILD_NUMBER}/allure/",
     "language": "en",
     "allureFolder": "allure-report",
     "enableChart": false,
