@@ -5,7 +5,7 @@
     "comment": "@armanii7",
     "reportLink": "https://jenkins.autotests.cloud/job/Newww/1/",
     "language": "en",
-    "allureFolder": "C:\\allure\\report",
+    "allureFolder": "allure-report",
     "enableChart": false,
     "enableSuitesPublishing": false
   },
